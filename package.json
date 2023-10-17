@@ -1,0 +1,17 @@
+{
+  "name": "gwllx.co",
+  "version": "1.0.0",
+  "description": "My personal website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "Gareth Williamson <gwllx.dev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "clean-css": "^5.3.2",
+    "terser": "^5.22.0"
+  }
+}
