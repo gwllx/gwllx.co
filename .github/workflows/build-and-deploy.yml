@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,11 +13,23 @@ jobs:
           node-version: '20.x'
       - run: npm install
       - run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build/
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build/
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan -t rsa ${{ secrets.DEPLOY_HOST }} > ~/.ssh/known_hosts
       - run: chmod 0600 ~/.ssh/known_hosts
       - run: echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
       - run: chmod 0600 ~/.ssh/id_rsa
       - run: |
-          rsync -rv --delete --exclude=".*" \
-            www/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:gwllx.co
+          rsync -rv --delete --exclude=".*" build/ \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:gwllx.co
