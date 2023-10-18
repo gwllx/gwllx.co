@@ -1,0 +1,23 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - run: npm install
+      - run: npm run build
+      - run: mkdir -p ~/.ssh
+      - run: ssh-keyscan -t rsa ${{ secrets.DEPLOY_HOST }} > ~/.ssh/known_hosts
+      - run: chmod 0600 ~/.ssh/known_hosts
+      - run: echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+      - run: chmod 0600 ~/.ssh/id_rsa
+      - run: |
+          rsync -rv --delete --exclude=".*" \
+            www/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:gwllx.co
