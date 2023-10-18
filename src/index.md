@@ -2,7 +2,7 @@
 title: Gareth Williamson
 layout: moon/base
 links:
-  - name: Mastadon
+  - name: Mastodon
     href: https://mastodon.social/@gwllx
     rel: me
 ---
