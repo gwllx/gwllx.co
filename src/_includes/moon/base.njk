@@ -10,7 +10,9 @@
     <body>
         <div class="content"></div>
         <div class="links">
-            <a rel="me" href="https://mastodon.social/@gwllx">Mastodon</a>
+            {%- for link in links %}
+            <a rel="{{ link.rel }}" href="{{ link.href }}">{{ link.name }}</a>
+            {%- endfor %}
         </div>
         <script>{% jsmin %}{% include "./base.js" %}{% endjsmin %}</script>
     </body>
