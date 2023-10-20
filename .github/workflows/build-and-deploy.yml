@@ -28,7 +28,7 @@ jobs:
           path: build/
       - uses: gwllx/remote-sync@latest
         with:
-          args: --rv --delete --exclude=".*"
+          args: -rv --delete --exclude=".*"
           source: build/
           target: gwllx.co
           host: ${{ secrets.DEPLOY_HOST }}
