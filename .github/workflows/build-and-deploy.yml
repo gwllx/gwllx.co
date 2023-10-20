@@ -26,11 +26,11 @@ jobs:
         with:
           name: build
           path: build/
-      - run: mkdir -p ~/.ssh
-      - run: ssh-keyscan -t rsa ${{ secrets.DEPLOY_HOST }} > ~/.ssh/known_hosts
-      - run: chmod 0600 ~/.ssh/known_hosts
-      - run: echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
-      - run: chmod 0600 ~/.ssh/id_rsa
-      - run: |
-          rsync -rv --delete --exclude=".*" build/ \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:gwllx.co
+      - uses: gwllx/remote-sync@latest
+        with:
+          args: --rv --delete --exclude=".*"
+          source: build/
+          target: gwllx.co
+          host: ${{ secrets.DEPLOY_HOST }}
+          user: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
