@@ -26,7 +26,7 @@ jobs:
         with:
           name: build
           path: build/
-      - uses: gwllx/remote-sync@latest
+      - uses: gwllx/remote-sync@v1
         with:
           args: -rv --delete --exclude=".*"
           source: build/
