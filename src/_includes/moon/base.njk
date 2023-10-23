@@ -8,12 +8,14 @@
         <style>{% cssmin %}{% include "./base.css" %}{% endcssmin %}</style>
     </head>
     <body>
-        <div class="content"></div>
         <div class="links">
             {%- for link in links %}
-            <a rel="{{ link.rel }}" href="{{ link.href }}">{{ link.name }}</a>
+            <a rel="{{ link.rel }}" href="{{ link.href }}">
+                <img src="img/{{ link.img }}" alt="{{ link.name }}" />
+            </a>
             {%- endfor %}
         </div>
+        <div class="content"></div>
         <script>{% jsmin %}{% include "./base.js" %}{% endjsmin %}</script>
     </body>
 </html>

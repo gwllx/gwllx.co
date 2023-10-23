@@ -1,18 +1,47 @@
 html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
     align-items: center;
     background: linear-gradient(#01080c, #04293d);
     background-size: 200%;
     display: flex;
+    flex-direction: column;
     height: 100%;
     justify-content: center;
+    margin: 0;
+    padding: 0;
     width: 100%;
 }
 
 .content {
+    align-items: center;
     display: flex;
-    font-size: 96pt
+    flex-grow: 1;
+    font-size: 96pt;
 }
 
 .links {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 20px;
+    margin-right: 50px;
+    width: 100%;
+}
+
+.links a {
+    margin-right: 25px;
+}
+
+.links a:last-child {
+    margin-right: 0px;
+}
+
+.links img {
+    width: 24px;
 }

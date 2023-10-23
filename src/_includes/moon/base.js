@@ -8,5 +8,12 @@ window.onload = function() {
     const phase_pc = phase_ms % lunarCycle_ms / lunarCycle_ms;
     const index = Math.round(elems.length * phase_pc) % elems.length;
 
-    document.getElementsByClassName("content")[0].innerHTML = elems[index];
+    const content = document.getElementsByClassName("content")[0];
+    content.innerHTML = elems[index];
+
+    var toggle = false;
+    content.onclick = function() {
+        toggle = !toggle;
+        content.innerHTML = toggle ? "👽" : elems[index];        
+    }
 };
