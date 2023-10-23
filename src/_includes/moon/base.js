@@ -8,7 +8,7 @@ window.onload = function() {
     const phase_pc = phase_ms % lunarCycle_ms / lunarCycle_ms;
     const index = Math.round(elems.length * phase_pc) % elems.length;
 
-    const content = document.getElementsByClassName("content")[0];
+    const content = document.getElementsByClassName("moon")[0];
     content.innerHTML = elems[index];
 
     var toggle = false;
