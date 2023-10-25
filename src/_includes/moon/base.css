@@ -22,20 +22,21 @@ body {
     align-items: center;
     display: flex;
     flex-grow: 1;
-    font-size: 96pt;
+    font-size: 114pt;
+    user-select: none;
 }
 
 .links {
     display: flex;
     flex-direction: row;
     justify-content: right;
-    margin-top: 20px;
-    margin-right: 50px;
+    margin-top: 30px;
+    margin-right: 60px;
     width: 100%;
 }
 
 .links a {
-    margin-right: 25px;
+    margin-right: 30px;
 }
 
 .links a:last-child {
@@ -43,5 +44,5 @@ body {
 }
 
 .links img {
-    width: 24px;
+    width: 28px;
 }
