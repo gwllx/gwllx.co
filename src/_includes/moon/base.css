@@ -18,11 +18,11 @@ body {
     width: 100%;
 }
 
-.content {
+.content { 
     align-items: center;
     display: flex;
     flex-grow: 1;
-    font-size: 114pt;
+    font-size: 96pt;
     user-select: none;
 }
 
