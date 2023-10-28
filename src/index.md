@@ -7,7 +7,7 @@ links:
     rel: link
     img: github.svg
   - name: Mastodon
-    href: https://mastodon.social/@gwllx
+    href: https://hachyderm.io/@gwllx
     rel: me
     img: mastodon.svg
 ---
