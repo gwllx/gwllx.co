@@ -1,8 +1,7 @@
 {
   "name": "gwllx.co",
   "version": "1.0.0",
-  "description": "My personal website.",
-  "main": "index.js",
+  "description": "My personal website (and moon phase tracker).",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
