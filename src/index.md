@@ -6,8 +6,8 @@ links:
     href: https://github.com/gwllx
     rel: link
     img: github.svg
-  - name: Mastodon
-    href: https://mastodon.social/@gwllx
-    rel: me
-    img: mastodon.svg
+  - name: Bluesky
+    href: https://bsky.app/profile/gwllx.co
+    rel: link
+    img: bluesky.svg
 ---
